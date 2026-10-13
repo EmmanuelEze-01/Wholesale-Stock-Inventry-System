@@ -1,0 +1,8 @@
+<i class="ri-archive-2-line"></i>
+Customer/Order
+
+<i class="ri-logout-box-r-line"></i>
+Sold
+
+<i class="ri-login-box-line"></i>
+Purchase/Bought

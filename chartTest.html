@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f5f5f5;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        #datetime {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .inputs {
+            margin: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        canvas {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📊 Expense Tracker</h1>
+
+    <!-- Date & Time -->
+    <div id="datetime"></div>
+
+    <!-- Inputs -->
+    <div class="inputs">
+        <input id="cost" type="number" placeholder="Cost Price">
+        <input id="selling" type="number" placeholder="Selling Price">
+        <input id="expenses" type="number" placeholder="Expenses">
+        <br>
+        <button onclick="addRecord()">Add Record</button>
+    </div>
+
+    <!-- Chart -->
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // =========================
+        // DATE & TIME
+        // =========================
+        function updateDateTime() {
+            const now = new Date();
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = ["January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"];
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            let ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12;
+
+            const formatted = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>
+                         ${hours}:${minutes}:${seconds} ${ampm}`;
+
+            document.getElementById("datetime").innerHTML = formatted;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // =========================
+        // CHART SETUP
+        // =========================
+        const ctx = document.getElementById('myChart');
+
+        const labels = [];
+        const profitData = [];
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Profit / Loss',
+                    data: profitData,
+                    borderColor: '#000',
+                    fill: true,
+                    fillStyle: '#258bfa',
+
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const value = context.raw;
+                                return value < 0
+                                    ? "Loss: ₦" + Math.abs(value)
+                                    : "Profit: ₦" + value;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Profit / Loss Over Time'
+                    }
+                }
+            }
+        });
+
+        // =========================
+        // ADD DATA FUNCTION
+        // =========================
+        let count = 1;
+
+        function addRecord() {
+            const cost = Number(document.getElementById('cost').value);
+            const selling = Number(document.getElementById('selling').value);
+            const expenses = Number(document.getElementById('expenses').value);
+
+            if (!cost || !selling) {
+                alert("Enter valid values");
+                return;
+            }
+
+            const profit = selling - cost - expenses;
+
+            labels.push("Entry " + count);
+            profitData.push(profit);
+
+            count++;
+
+            myChart.update();
+
+            // Clear inputs
+            document.getElementById('cost').value = "";
+            document.getElementById('selling').value = "";
+            document.getElementById('expenses').value = "";
+        }
+    </script>
+
+</body>
+
+</html>

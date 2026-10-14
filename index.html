@@ -14,36 +14,36 @@
 
 <body>
     <div class="container">
-        <div class="navbar">
-            <span class="logo">
-                A
+        <div class="navbar" id="navbar">
+            <span class="logo" id="logo">
+                S
             </span>
             <ul>
-                <a href="#">
+                <a href="#" id="nav-links">
                     <i class="ri-dashboard-line"></i>
                     <!-- Dashboard -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-two">
                     <i class="ri-file-list-3-line"></i>
                     <!-- Orders -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-three">
                     <i class="ri-price-tag-3-line"></i>
                     <!-- Price -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-four">
                     <i class="ri-box-1-line"></i>
                     <!-- Inventory -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-five">
                     <i class="ri-add-large-fill"></i>
                     <!-- Purchase Order -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-six">
                     <i class="ri-wallet-line"></i>
                     <!-- Finance -->
                 </a>
-                <a href="#">
+                <a href="#" id="nav-links-seven">
                     <i class="ri-user-line"></i>
                     <!-- Manage Account -->
                 </a> 
@@ -68,7 +68,7 @@
                     <div class="box-1">
                         <div class="box-1-txt">
                             <p>Hi, <span>Emmanuel</span></p>
-                            <p>Wednesday, 6 May 2026</p>
+                            <p id="dateDisplay">Wednesday, 6 May 2026</p>
                         </div>
 
                         <div class="box-1-stat">
@@ -121,7 +121,7 @@
                         <span>Total drink type</span>
                         <span>130</span>
                     </div>
-                    <canvas id="myCanvas" style="background: #fff; max-width: 250px;"></canvas>
+                    <canvas id="myCanvas" style="background: white; max-width: 350px; max-height:260px;"></canvas>
                     <!-- <div class="in-ma-dr">
                         <div><button style="cursor: default; --i: #097e09;"></button><span class="is1nm">90</span> <span
                                 class="dif">High</span>
@@ -471,7 +471,112 @@
                     <canvas style="background: blue; width: 100%;"></canvas>
                 </div>
 
-                <div class="bcio35m"></div>
+                <div class="orders-info">
+                    <p>Orders list</p>
+                
+
+                <!-- <table>
+                    <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Customer Name</th>
+                            <th>Crate Amount</th>
+                            <th>Amount</th>
+                            <th>Payment Method</th>
+                            <th>Time</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORD-LWD8K7J-F8A2N</td>
+                            <td>Bills restuarant</td>
+                            <td>232</td>
+                            <td>4028920</td>
+                            <td>Transfer</td>
+                            <td>08:41:05</td>
+                        </tr>
+                                            <tr>
+                            <td>ORD-LWD8K7J-F8A2N</td>
+                            <td>Bills restuarant</td>
+                            <td>232</td>
+                            <td>4028920</td>
+                            <td>Transfer</td>
+                            <td>08:41:05</td>
+                        </tr>
+                                            <tr>
+                            <td>ORD-LWD8K7J-F8A2N</td>
+                            <td>Gudu</td>
+                            <td>232</td>
+                            <td>4028920</td>
+                            <td>POS</td>
+                            <td>08:41:05</td>
+                        </tr>
+                        <tr>
+                            <td>ORD-LWD8K7J-F8A2N</td>
+                            <td>Chidi</td>
+                            <td>4</td>
+                            <td>40020</td>
+                            <td>Cash</td>
+                            <td>08:41:05</td>
+                        </tr>
+                        <tr>
+                            <td>ORD-LWD8K7J-F8A2N</td>
+                            <td>Blake</td>
+                            <td>2302</td>
+                            <td>4128920</td>
+                            <td>Transfer</td>
+                            <td>08:41:05</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+                <div class="info-table">
+                    <div class="ith">
+                            <span>Order Id</span>
+                            <span>Customer Name</span>
+                            <span>Crate Amount</span>
+                            <span>Amount (₦)</span>
+                            <span>Payment Method</span>
+                            <span>Time</span>
+                    </div>
+                    <div class="itb">
+                        <div class="tl">
+                            <span>ORD-LWD8K7J-F8A2N</span>
+                            <span>Bills restuarant</span>
+                            <span>232</span>
+                            <span>4028920</span>
+                            <span>Transfer</span>
+                            <span>08:41:05</span>
+                        </div>
+                          <div class="tl">
+                                                 <tr>
+                            <span>ORD-LWD8K7J-F8A2N</span>
+                            <span>Gudu</span>
+                            <span>232</span>
+                            <span>4028920</span>
+                            <span>POS</span>
+                            <span>08:41:05</span>
+                        </div>
+                          <div class="tl">
+                           <span>ORD-LWD8K7J-F8A2N</span>
+                            <span>Chidi</span>
+                            <span>4</span>
+                            <span>40020</span>
+                            <span>Cash</span>
+                            <span>08:41:05</span>
+                        </div>
+                          <div class="tl">
+                         <span>ORD-LWD8K7J-F8A2N</span>
+                            <span>Blake</span>
+                            <span>2302</span>
+                            <span>4128920</span>
+                            <span>Transfer</span>
+                            <span>08:41:05</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
                 <div class="hiqo45j"></div>
                 <div class="jo12m4"></div>
 
@@ -496,6 +601,8 @@
 
         </div>
 
+
+        <script src="script.js"></script>
 </body>
 
 </html>

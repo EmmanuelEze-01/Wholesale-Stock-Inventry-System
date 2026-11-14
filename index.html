@@ -12,38 +12,38 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body class="theme-01-ocean">
     <div class="container">
         <div class="navbar" id="navbar">
             <span class="logo" id="logo">
-                S
+                Ventry
             </span>
             <ul>
-                <a href="#" id="nav-links">
+                <a href="#" id="nav-links" class="nav-link-active nav-link dashboard-link" onclick="switchMainContent('.dashboard-link', 'dashboard-content')">
                     <i class="ri-dashboard-line"></i>
                     <!-- Dashboard -->
                 </a>
-                <a href="#" id="nav-links-two">
+                <a href="#" id="nav-links-two" class="nav-link orders-link" onclick="switchMainContent('.orders-link', 'orders-content')">
                     <i class="ri-file-list-3-line"></i>
                     <!-- Orders -->
                 </a>
-                <a href="#" id="nav-links-three">
+                <a href="#" id="nav-links-three" class="nav-link price-link" onclick="switchMainContent('.price-link', 'price-content')">
                     <i class="ri-price-tag-3-line"></i>
                     <!-- Price -->
                 </a>
-                <a href="#" id="nav-links-four">
+                <a href="#" id="nav-links-four" class="nav-link inventory-link" onclick="switchMainContent('.inventory-link', 'inventory-content')">
                     <i class="ri-box-1-line"></i>
                     <!-- Inventory -->
                 </a>
-                <a href="#" id="nav-links-five">
+                <a href="#" id="nav-links-five" class="nav-link purchase-orders-link" onclick="switchMainContent('.purchase-orders-link', 'purchase-orders-content')">
                     <i class="ri-add-large-fill"></i>
                     <!-- Purchase Order -->
                 </a>
-                <a href="#" id="nav-links-six">
+                <a href="#" id="nav-links-six" class="nav-link finance-link" onclick="switchMainContent('.finance-link', 'finance-content')">
                     <i class="ri-wallet-line"></i>
                     <!-- Finance -->
                 </a>
-                <a href="#" id="nav-links-seven">
+                <a href="#" id="nav-links-seven" class="nav-link manage-account-link" onclick="switchMainContent('.manage-account-link', 'manage-account-content')">
                     <i class="ri-user-line"></i>
                     <!-- Manage Account -->
                 </a> 
@@ -55,13 +55,13 @@
             <div class="top-content">
                 <span class="h">Dashboard</span>
                 <div class="di">
-                    <span class="name">Emmanuel Eze</span>
-                    <span class="role">Admin</span>
+                    <span class="name" id="usrnm">Emmanuel Eze</span>
+                    <span class="role" id="usrle">Admin</span>
                 </div>
 
             </div>
 
-            <div class="middle-content">
+            <div class="content-container dashboard-content" id="dashboard-content">
 
                 <div class="dash-overview">
 
@@ -72,9 +72,15 @@
                         </div>
 
                         <div class="box-1-stat">
+                       
                             <span class="b1s-h">Total Earings</span>
-                            <span class="b1s-dir"><span class="n1"> <i class="fa-solid fa-arrow-trend-up"></i>
-                                    <span>+30.15%</span></span></span>
+                            <span class="b1s-dir">
+                                <span class="n1">
+                                     <i class="fa-solid fa-arrow-trend-up"></i>
+                                    <span>+30.15%</span>
+                                </span>
+                            </span>
+                            
                             <div class="ins1">
                                 <span class="b1s-amt">₦12,384,839</span>
                                 <span class="b1s-tf">from this week</span>
@@ -115,312 +121,37 @@
                     </div>
                 </div>
 
-                <div class="drinks-brand-info">
+                <!-- <div class="drinks-brand-info">
                     <p>Drinks Availability</p>
                     <div class="jn1k">
                         <span>Total drink type</span>
                         <span>130</span>
                     </div>
                     <canvas id="myCanvas" style="background: white; max-width: 350px; max-height:260px;"></canvas>
-                    <!-- <div class="in-ma-dr">
-                        <div><button style="cursor: default; --i: #097e09;"></button><span class="is1nm">90</span> <span
-                                class="dif">High</span>
-                        </div>
-                        <div><button style="cursor: default; --i: #ffe601;"></button><span class="is1nm">20</span> <span
-                                class="dif">Low</span>
-                        </div>
-                        <div><button style="cursor: default; --i: #e70404;"></button><span class="is1nm">20</span>
-                            <span class="dif">Out</span>
-                        </div>
-                    </div> -->
-                    <script>
-                        // const canvas = document.getElementById("myCanvas");
-                        // const ctx = canvas.getContext("2d");
-
-
-                        // const values = [68, 22, 25, 5];
-
-                        // const colors = [
-                        //     '#2F80ED',
-                        //     '#D4E800',
-                        //     '#FFD600',
-                        //     '#E6ECF5'
-                        // ];
-
-                        // new Chart(document.getElementById('myCanvas'), {
-
-                        // type: 'bar',
-
-                        //     data: {
-                        //     labels: ['Status'],
-
-                        //         datasets: values.map((v, i) => ({
-
-                        //             data: [v],
-
-                        //             backgroundColor: colors[i],
-
-                        //             borderRadius: 20,
-
-                        //             borderSkipped: false,
-
-                        //             barPercentage: 0.7,
-
-                        //             categoryPercentage: 0.9
-                        //         }))
-                        // },
-
-                        // options: {
-
-                        //     responsive: true,
-
-                        //         plugins: {
-                        //         legend: {
-                        //             display: false
-                        //         },
-                        //         tooltip: {
-                        //             enabled: false
-                        //         }
-                        //     },
-
-                        //     scales: {
-                        //         x: {
-                        //             stacked: true,
-                        //                 display: false
-                        //         },
-
-                        //         y: {
-                        //             stacked: true,
-                        //                 display: false
-                        //         }
-                        //     }
-                        // }
-                        // });
-
-
-                        // const ctx =
-                        //     document.getElementById('myCanvas');
-
-                        // new Chart(ctx, {
-
-                        //     type: 'line',
-
-                        //     data: {
-
-                        //         labels: [
-                        //             'Mon', 'Tue', 'Wed',
-                        //             'Thu', 'Fri', 'Sat'
-                        //         ],
-
-                        //         datasets: [
-
-                        //             {
-                        //                 label: 'Income',
-
-                        //                 data: [
-                        //                     500, 700, 800,
-                        //                     600, 900, 1200
-                        //                 ],
-
-                        //                 borderColor: 'green',
-
-                        //                 backgroundColor:
-                        //                     'rgba(0,255,0,0.2)',
-
-                        //                 fill: true,
-
-                        //                 tension: 0.4
-                        //             },
-
-                        //             {
-                        //                 label: 'Expenses',
-
-                        //                 data: [
-                        //                     300, 400, 500,
-                        //                     450, 600, 700
-                        //                 ],
-
-                        //                 borderColor: 'red',
-
-                        //                 backgroundColor:
-                        //                     'rgba(255,0,0,0.2)',
-
-                        //                 fill: true,
-
-                        //                 tension: 0.4
-                        //             }
-                        //         ]
-                        //     },
-
-                        //     options: {
-
-                        //         responsive: true,
-
-                        //         interaction: {
-                        //             mode: 'index',
-                        //             intersect: false
-                        //         },
-
-                        //         plugins: {
-
-                        //             legend: {
-                        //                 position: 'top'
-                        //             },
-
-                        //             tooltip: {
-
-                        //                 callbacks: {
-
-                        //                     label: function (context) {
-                        //                         return "₦" + context.raw;
-                        //                     }
-                        //                 }
-                        //             }
-                        //         },
-
-                        //         scales: {
-
-                        //             y: {
-                        //                 beginAtZero: true
-                        //             }
-                        //         }
-                        //     }
-                        // });
-
-
-
-                        const ctx =
-                            document.getElementById('myCanvas');
-
-                        new Chart(ctx, {
-
-                            type: 'pie',
-
-                            data: {
-
-                                labels: [
-                                    'High', 'Low', 'Out',
-                                ],
-
-                                datasets: [
-
-                                    {
-                                        // label: 'High' 'Low' 'Out',
-
-                                        data: [
-                                            50, 30, 10
-                                        ],
-
-                                        borderColor: '#fff',
-
-                                        backgroundColor: [
-                                            "#097e09",
-                                            '#ffe601',
-                                            '#e70404',
-                                        ],
-
-                                        borderWidth: 7,
-                                        fill: true,
-
-                                        tension: 0
-                                    },
-
-                                    // {
-                                    //     label: 'Low',
-
-                                    //     data: [
-                                    //         30
-                                    //     ],
-
-                                    //     borderColor: '#ffe601',
-
-                                    //     backgroundColor:
-                                    //         'rgba(255,230,1,0.2)',
-
-                                    //     fill: true,
-
-                                    //     tension: 0.4
-                                    // },
-
-
-                                    // {
-                                    //     label: 'Out',
-
-                                    //     data: [
-                                    //         10
-                                    //     ],
-
-                                    //     borderColor: '#e70404',
-
-                                    //     backgroundColor:
-                                    //         'rgba(255,0,0,0.2)',
-
-                                    //     fill: true,
-
-                                    //     tension: 0.4
-                                    // }
-                                ]
-                            },
-
-                            options: {
-
-                                // responsive: true,
-
-                                // interaction: {
-                                //     mode: 'index',
-                                //     intersect: false
-                                // },
-
-                                plugins: {
-
-                                    legend: {
-                                        position: 'bottom'
-                                    },
-
-                                    tooltip: {
-
-                                        callbacks: {
-
-                                            label: function (context) {
-                                                return context.raw + " Drinks";
-                                            }
-                                        }
-                                    }
-                                },
-
-                                // scales: {
-
-                                //     y: {
-                                //         beginAtZero: true
-                                //     }
-                                // }
-                            }
-                        });
-
-                        // ctx.fillStyle = "#097e09";
-                        // ctx.fillRect(0, 100, 50, 100);
-
-                        // ctx.fillStyle = "#ffe601";
-                        // ctx.fillRect(60, 100, 50, 120);
-
-                        // ctx.fillStyle = "#e70404";
-                        // ctx.fillRect(120, 100, 50, 70);
-                    </script>
+                </div> -->
+
+                    <div class="panel">
+                    <p>Drinks Availability</p>
+                    <div class="head">
+                        <span>Total drink type</span>
+                        <span id="total">130</span>
+                    </div>
+                    <div class="box"><canvas id="drinksChart"></canvas></div>
+                
                 </div>
 
                 <div class="revenue-board">
                     <div class="he8ad">
                         <span>Revenue</span>
-                        <select name="" id="revenue-selcet-option" class="revenue-selcet-option">
-                            <option value="Last Week">This Week</option>
-                            <option value="Last Week">Last Week</option>
-                            <option value="Last Month">Last Month</option>
-                            <option value="Last 3 Months">Last 3 Months</option>
-                            <option value="Last 6 Months">Last 6 Months</option>
-                            <option value="Last Year">Last Year</option>
+                        <select id="revenue-select" class="revenue-selcet-option">
+                            <option value="week">This Week</option>
+                            <option value="month">Last Month</option>
+                            <option value="lastthreemonth">Last 3 Months</option>
+                            <option value="lastsixmonth">Last 6 Months</option>
+                            <option value="year">Last Year</option>
                         </select>
                     </div>
-                    <canvas style="background: blue; width: 100%;"></canvas>
+                    <canvas id="revenueChart"></canvas>
                 </div>
 
                 <div class="order-overview-board">
@@ -435,10 +166,23 @@
                             <option value="Last Year">Last Year</option>
                         </select>
                     </div>
-                    <canvas style="background: blue; width: 100%;"></canvas>
+                    <canvas id="ordersChart"></canvas>
                 </div>
 
-                <div class="fj7a1o">
+                <div class="themes-button-container">
+                    <button id="theme-1-btn">Theme 1</button>
+                    <button id="theme-2-btn">Theme 2</button>
+                    <button id="theme-3-btn">Theme 3</button>
+                    <button id="theme-4-btn">Theme 4</button>
+                    <button id="theme-5-btn">Theme 5</button>
+                    <button id="theme-6-btn">Theme 6</button>
+                    <button id="theme-7-btn">Theme 7</button>
+                    <button id="theme-8-btn">Theme 8</button>
+                    <button id="theme-9-btn">Theme 9</button>
+                    <button id="theme-10-btn">Theme 10</button>
+                    <button id="theme-11-btn">Theme 11</button>
+                    <button id="theme-12-btn">Theme 12</button>
+           
                 </div>
 
                 <div class="top-category">
@@ -453,13 +197,13 @@
                             <option value="Last Year">Last Year</option>
                         </select>
                     </div>
-                    <canvas style="background: blue; width: 100%;"></canvas>
+                    <canvas id="topCategoryChart"></canvas>
                 </div>
 
                 <div class="top-brand">
                     <div class="he8ad">
                         <span>Top Brand</span>
-                        <select name="" id="order-overview-select" class="top-brand-select">
+                        <select name="" class="top-brand-select">
                             <option value="Last Week">This Week</option>
                             <option value="Last Week">Last Week</option>
                             <option value="Last Month">Last Month</option>
@@ -468,7 +212,7 @@
                             <option value="Last Year">Last Year</option>
                         </select>
                     </div>
-                    <canvas style="background: blue; width: 100%;"></canvas>
+                    <canvas id="topBrandChart"></canvas>
                 </div>
 
                 <div class="orders-info">
@@ -545,16 +289,15 @@
                             <span>Bills restuarant</span>
                             <span>232</span>
                             <span>4028920</span>
-                            <span>Transfer</span>
+                            <span><span class="payment-method">Transfer</span></span>
                             <span>08:41:05</span>
                         </div>
                           <div class="tl">
-                                                 <tr>
                             <span>ORD-LWD8K7J-F8A2N</span>
                             <span>Gudu</span>
                             <span>232</span>
                             <span>4028920</span>
-                            <span>POS</span>
+                            <span><span class="payment-method">POS</span></span>
                             <span>08:41:05</span>
                         </div>
                           <div class="tl">
@@ -562,7 +305,7 @@
                             <span>Chidi</span>
                             <span>4</span>
                             <span>40020</span>
-                            <span>Cash</span>
+                            <span><span class="payment-method">Cash</span></span>
                             <span>08:41:05</span>
                         </div>
                           <div class="tl">
@@ -570,17 +313,56 @@
                             <span>Blake</span>
                             <span>2302</span>
                             <span>4128920</span>
-                            <span>Transfer</span>
+                            <span><span class="payment-method">Transfer</span></span>
                             <span>08:41:05</span>
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
                
-                <div class="hiqo45j"></div>
-                <div class="jo12m4"></div>
+                <div class="top-drinks">
+                    <div class="head"><span>Top Drinks</span></div>
+                    <div id="top-drink-card">
+                    </div>
+                </div>
+                <div class="low-stocks">
+                    <div class="head">Low Stock</div>
+                    <div id="low-stock-card">
+                        <div class="ls-card-cnt">
+                                <span>Star</span>
+                                <span>20 Crates</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
+            <div class="orders-content content-container" id="orders-content" style="display: none;"> <h2>Orders</h2></div>
+            <div class="price-content content-container" id="price-content" style="display: none;"><h2>Price</h2></div>
+            <div class="inventory-content content-container" id="inventory-content" style="display: none;"><h2>Inventory</h2></div>
+            <div class="purchase-orders-content content-container" id="purchase-orders-content" style="display: none;"><h2>Purchase Orders</h2></div>
+            <div class="finance-content content-container" id="finance-content" style="display: none;"> <h2>Finance</h2></div>
+            <div class="manage-account-content content-container" id="manage-account-content" style="display: none;">
+                <section>
+                    <h2>Manage Account</h2>
+                    <form id="signInForm">
+                        <h2>Log in to Gain Full Access</h2>
+                        <div>
+                        <label for="name">Name:</label>
+                        <input type="text" name="" id="SignInInputName" autocomplete="off" required>
+                        </div>  
+                        <div>
+                        <label for="name">Password:</label>
+                        <input type="password" name="" id="SignInInputPassword" required>
+                        </div>  
+                        <button type="submit">Submit</button>
+                        <p id="signInMessage"></p>
+                    </form>
+                    <button style="width: 250px; display: none; margin-top: 15px;" onclick="logOut()" id="logOutBtn">Log Out</button>
+                 </section>   
+            </div>
+
+            
+
             <footer class="footer">
                 <div class="text">
                     <p>copyright &copy;
@@ -603,6 +385,8 @@
 
 
         <script src="script.js"></script>
+        <script src="dashboardCharts.js"></script>
+        <script src="themes.js"></script>
 </body>
 
 </html>

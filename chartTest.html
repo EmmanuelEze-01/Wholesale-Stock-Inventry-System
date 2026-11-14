@@ -1,177 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
+  <head>
     <title>Expense Tracker Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: #f5f5f5;
-        }
+      body {
+        font-family: Arial;
+        text-align: center;
+        background: #f5f5f5;
+      }
 
-        h1 {
-            margin-top: 20px;
-        }
+      h1 {
+        margin-top: 20px;
+      }
 
-        #datetime {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
+      #datetime {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
 
-        .inputs {
-            margin: 20px;
-        }
+      .inputs {
+        margin: 20px;
+      }
 
-        input {
-            padding: 10px;
-            margin: 5px;
-            width: 150px;
-        }
+      input {
+        padding: 10px;
+        margin: 5px;
+        width: 150px;
+      }
 
-        button {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
 
-        canvas {
-            max-width: 800px;
-            margin: 30px auto;
-        }
+      canvas {
+        max-width: 800px;
+        margin: 30px auto;
+        height: 300px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>📊 Expense Tracker</h1>
 
     <!-- Date & Time -->
     <div id="datetime"></div>
 
     <!-- Inputs -->
-    <div class="inputs">
-        <input id="cost" type="number" placeholder="Cost Price">
-        <input id="selling" type="number" placeholder="Selling Price">
-        <input id="expenses" type="number" placeholder="Expenses">
-        <br>
-        <button onclick="addRecord()">Add Record</button>
-    </div>
+    <!-- <div class="inputs">
+      <input id="cost" type="number" placeholder="Cost Price" />
+      <input id="selling" type="number" placeholder="Selling Price" />
+      <input id="expenses" type="number" placeholder="Expenses" />
+      <br />
+      <button onclick="addRecord()">Add Record</button>
+    </div> -->
 
     <!-- Chart -->
     <canvas id="myChart"></canvas>
 
+    <canvas id="testChart"></canvas>
+
     <script>
-        // =========================
-        // DATE & TIME
-        // =========================
-        function updateDateTime() {
-            const now = new Date();
+      // =========================
+      // DATE & TIME
+      // =========================
+      function updateDateTime() {
+        const now = new Date();
 
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const months = ["January", "February", "March", "April", "May", "June", "July",
-                "August", "September", "October", "November", "December"];
+        const days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
 
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            let ampm = hours >= 12 ? "PM" : "AM";
-            hours = hours % 12 || 12;
+        let ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
 
-            const formatted = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>
-                         ${hours}:${minutes}:${seconds} ${ampm}`;
+        const formatted = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>
+                       ${hours}:${minutes}:${seconds} ${ampm}`;
 
-            document.getElementById("datetime").innerHTML = formatted;
-        }
+        document.getElementById("datetime").innerHTML = formatted;
+      }
 
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+      setInterval(updateDateTime, 1000);
+      updateDateTime();
 
-        // =========================
-        // CHART SETUP
-        // =========================
-        const ctx = document.getElementById('myChart');
+      // =========================
+      // CHART SETUP
+      const testChart = document.getElementById("testChart");
 
-        const labels = [];
-        const profitData = [];
-
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Profit / Loss',
-                    data: profitData,
-                    borderColor: '#000',
-                    fill: true,
-                    fillStyle: '#258bfa',
-
-                    tension: 0.3
-                }]
+      const Tc = new Chart(testChart, {
+        type: "line",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: "This Week",
+              data: [1000000, 3700000, 3000000],
+              //   borderColor: "#333",
+              tension: 0.5,
+              borderColor: "rgb(75, 192, 192)",
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              pointRadius: 0,
+              borderWidth: 3,
+              fill: true,
             },
-            options: {
-                responsive: true,
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          interaction: { mode: "index", intersect: false },
+          scales: {
+            x: {
+              grid: { display: false },
+              border: { display: false },
+              ticks: { display: false },
+            },
+            y: {
+              //   grid: { color: "#fafafa" },
+              border: { display: true },
+              ticks: { display: true },
+            },
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (c) => c.dataset.label + ": " + c.parsed.y,
+              },
+            },
+            legend: { labels: { pointStyle: "circle" } },
+          },
+        },
+      });
 
-                interaction: {
-                    mode: 'index',
-                    intersect: false
+      // =========================
+      const ctx = document.getElementById("myChart");
+
+      const labels = [];
+      const profitData = [];
+
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: "Profit / Loss",
+              data: profitData,
+              borderColor: "#000",
+              fill: true,
+              fillStyle: "#258bfa",
+
+              tension: 0.3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+
+          interaction: {
+            mode: "index",
+            intersect: false,
+          },
+
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  const value = context.raw;
+                  return value < 0
+                    ? "Loss: ₦" + Math.abs(value)
+                    : "Profit: ₦" + value;
                 },
+              },
+            },
+            title: {
+              display: true,
+              text: "Profit / Loss Over Time",
+            },
+          },
+        },
+      });
 
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                const value = context.raw;
-                                return value < 0
-                                    ? "Loss: ₦" + Math.abs(value)
-                                    : "Profit: ₦" + value;
-                            }
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Profit / Loss Over Time'
-                    }
-                }
-            }
-        });
+      // =========================
+      // ADD DATA FUNCTION
+      // =========================
+      let count = 1;
 
-        // =========================
-        // ADD DATA FUNCTION
-        // =========================
-        let count = 1;
+      function addRecord() {
+        const cost = Number(document.getElementById("cost").value);
+        const selling = Number(document.getElementById("selling").value);
+        const expenses = Number(document.getElementById("expenses").value);
 
-        function addRecord() {
-            const cost = Number(document.getElementById('cost').value);
-            const selling = Number(document.getElementById('selling').value);
-            const expenses = Number(document.getElementById('expenses').value);
-
-            if (!cost || !selling) {
-                alert("Enter valid values");
-                return;
-            }
-
-            const profit = selling - cost - expenses;
-
-            labels.push("Entry " + count);
-            profitData.push(profit);
-
-            count++;
-
-            myChart.update();
-
-            // Clear inputs
-            document.getElementById('cost').value = "";
-            document.getElementById('selling').value = "";
-            document.getElementById('expenses').value = "";
+        if (!cost || !selling) {
+          alert("Enter valid values");
+          return;
         }
+
+        const profit = selling - cost - expenses;
+
+        labels.push("Entry " + count);
+        profitData.push(profit);
+
+        count++;
+
+        myChart.update();
+
+        // Clear inputs
+        document.getElementById("cost").value = "";
+        document.getElementById("selling").value = "";
+        document.getElementById("expenses").value = "";
+      }
     </script>
-
-</body>
-
+  </body>
 </html>

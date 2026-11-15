@@ -29,6 +29,10 @@ const quietScales = {
 
 // /* ---------- Hardcoded data (swap for API data later) ---------- */
 const DATA = {
+  ordersPage: {
+    labels: ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"],
+    thisWeek: [1000, 1230, 970, 1404],
+  },
   revenue: {
     week: {
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -423,3 +427,52 @@ document.getElementById("revenue-select").addEventListener("change", (e) => {
 //     return DATA.revenue[range];
 //   }
 // }
+
+// ORDER PAGES
+// /* ---------- Order page chart: smooth line ---------- */
+const ordersPageChart = new Chart(
+  document.getElementById("orders-page-chart"),
+  {
+    type: "line",
+    data: {
+      labels: DATA.ordersPage.labels,
+      datasets: [
+        {
+          label: "This week",
+          data: DATA.ordersPage.thisWeek,
+          borderColor: col("chart-revenue-line-1"),
+          tension: 0.45,
+          pointRadius: 0,
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        x: {
+          grid: { display: false },
+          border: { display: false },
+          ticks: { display: true, color: col("card-orders-text") },
+        },
+        y: {
+          grid: { color: col("card-revenue-line") },
+          border: { display: true, color: col("card-revenue-line")},
+          ticks: { display: false },
+        },
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (c) => c.raw + " Orders",
+          },
+        },
+        legend: {
+          labels: { pointStyle: "circle", color: col("card-orders-text") },
+        },
+      },
+    },
+  },
+);

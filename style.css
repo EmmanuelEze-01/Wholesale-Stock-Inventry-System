@@ -13953,6 +13953,7 @@ select option {
   padding: 7px 10px;
   gap: 5px;
   background: var(--earnings-bg);
+  color: var(--earnings-text);
 }
 
 .content-container .dash-overview .box-1 .box-1-stat .ins1 {
@@ -14610,8 +14611,158 @@ select option {
   border-radius: 999px;
 }
 
-/* Manage acoount Container  */
-.manage-account-content{
+/* Orders  */
+.orders-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.orders-content section {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--panel-bg);
+}
+
+.orders-content .orders-top-content {
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 2fr;
+  grid-template-rows: 120px 120px;
+  gap: 20px;
+}
+.orders-top-content .card {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.orders-top-content .card:first-child {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-color: var(--earnings-bg);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttd-order div {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-evenly;
+  border-left: 5px solid var(--earnings-pill-bg);
+}
+
+.ttd-order div:first-child {
+  border-left: none;
+}
+
+.ttd-order span {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--earnings-text);
+}
+
+.ttd-order .btm span:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.ttd-order .btm span:nth-child(2) {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--earnings-pill-text);
+}
+
+.orders-content .icn {
+  font-size: 1.5rem;
+  color: var(--earnings-pill-text);
+}
+
+.orders-top-content .card:nth-child(2) {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  background-color: var(--tile-orders-bg);
+  color: var(--tile-orders-text);
+}
+.orders-top-content .card:nth-child(3) {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: var(--tile-sales-bg);
+  color: var(--tile-sales-text);
+}
+
+.txt-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.txt-cnt div {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt-cnt span:first-child {
+  font-weight: 900;
+  color: var(--earnings-pill-text);
+  font-size: 1.25rem;
+}
+
+.txt-cnt span:last-child {
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.orders-top-content .orders-overview {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  background-color: var(--card-orders-bg);
+  display: flex;
+  color: var(--card-orders-text);
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.orders-overview .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orders-overview .head span{
+  font-weight: 700;
+}
+
+.orders-overview .head p{
+  font-size: 13px;
+}
+
+.orders-overview canvas{
+  width: 100%;
+  height: 203px;
+  padding-bottom: 30px;
+}
+
+/* .orders-overview  canvas{
+  background-color: var(--accent-1);
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+} */
+
+/* Manage account  */
+.manage-account-content {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 }

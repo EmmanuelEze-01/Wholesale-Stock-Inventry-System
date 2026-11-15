@@ -1,11 +1,12 @@
 function setTheme(e) {
   localStorage.setItem("theme", e);
-  let Theme = localStorage.getItem("theme") || "theme-01-ocean";
+  let Theme = localStorage.getItem("theme");
   document.body.className = Theme;
   console.log(e);
 }
 
-setTheme("theme-01-ocean");
+let theme = localStorage.getItem("theme");
+setTheme(theme);
 
 document.getElementById("theme-1-btn").addEventListener("click", () => {
   setTheme("theme-01-ocean");
@@ -14,7 +15,7 @@ document.getElementById("theme-2-btn").addEventListener("click", () => {
   setTheme("theme-02-forest");
 });
 document.getElementById("theme-3-btn").addEventListener("click", () => {
-  setTheme("theme-03-plum");
+  setTheme("theme-14-contrast");
 });
 
 document.getElementById("theme-4-btn").addEventListener("click", () => {

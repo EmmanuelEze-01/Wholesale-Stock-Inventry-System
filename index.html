@@ -61,6 +61,7 @@
 
             </div>
 
+            <!-- Dashboard -->
             <div class="content-container dashboard-content" id="dashboard-content">
 
                 <div class="dash-overview">
@@ -217,63 +218,6 @@
 
                 <div class="orders-info">
                     <p>Orders list</p>
-                
-
-                <!-- <table>
-                    <thead>
-                        <tr>
-                            <th>Order Id</th>
-                            <th>Customer Name</th>
-                            <th>Crate Amount</th>
-                            <th>Amount</th>
-                            <th>Payment Method</th>
-                            <th>Time</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ORD-LWD8K7J-F8A2N</td>
-                            <td>Bills restuarant</td>
-                            <td>232</td>
-                            <td>4028920</td>
-                            <td>Transfer</td>
-                            <td>08:41:05</td>
-                        </tr>
-                                            <tr>
-                            <td>ORD-LWD8K7J-F8A2N</td>
-                            <td>Bills restuarant</td>
-                            <td>232</td>
-                            <td>4028920</td>
-                            <td>Transfer</td>
-                            <td>08:41:05</td>
-                        </tr>
-                                            <tr>
-                            <td>ORD-LWD8K7J-F8A2N</td>
-                            <td>Gudu</td>
-                            <td>232</td>
-                            <td>4028920</td>
-                            <td>POS</td>
-                            <td>08:41:05</td>
-                        </tr>
-                        <tr>
-                            <td>ORD-LWD8K7J-F8A2N</td>
-                            <td>Chidi</td>
-                            <td>4</td>
-                            <td>40020</td>
-                            <td>Cash</td>
-                            <td>08:41:05</td>
-                        </tr>
-                        <tr>
-                            <td>ORD-LWD8K7J-F8A2N</td>
-                            <td>Blake</td>
-                            <td>2302</td>
-                            <td>4128920</td>
-                            <td>Transfer</td>
-                            <td>08:41:05</td>
-                        </tr>
-                    </tbody>
-                </table> -->
                 <div class="info-table">
                     <div class="ith">
                             <span>Order Id</span>
@@ -336,11 +280,249 @@
                 </div>
 
             </div>
-            <div class="orders-content content-container" id="orders-content" style="display: none;"> <h2>Orders</h2></div>
+            <!-- Orders -->
+            <div class="orders-content content-container" id="orders-content" style="display: none;">
+                <section>
+                    <h2>Orders</h2>
+                    <div class="orders-top-content">
+                        <div class="card ttd-order">
+
+                            <div style="border-radius: 0;">
+                                <i class="fa-solid fa-receipt icn"></i>
+                                <span>200</span>
+                            </div>
+                            <div style="border-radius: 0;" class="btm">
+                                <span>Total Orders</span>
+                                <span>Today</span>
+                            </div>
+
+                        </div>
+
+                        <div class="card txt-cnt">
+                            <div>
+                                <i class="fa-solid fa-receipt icn"></i>
+                            </div>
+                            <div class="oit-cnt">
+                                <span>81940</span>
+                                <span>Orders this month</span>
+                            </div>
+                        </div>
+
+                        <div class="card txt-cnt">
+                            <div>
+                                <i class="fa-solid fa-receipt icn"></i>
+                            </div>
+                            <div class="oit-cnt">
+                                <span>1287940</span>
+                                <span>Orders this year</span>
+                            </div>
+                        </div>
+
+                        <div class="orders-overview">
+                            <div class="head">
+                            <span>Order Overview</span>
+                            <p>Orders</p>
+                            </div>
+                            <!-- <div class="chart-cnt"> -->
+                                <canvas id="orders-page-chart"></canvas>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    
+
+                    <br>
+
+                    <div class="order-table">
+                        <div class="orders-info">
+                            <p>Orders list</p>
+                        
+                        <div class="info-table">
+                            <div class="ith">
+                                <span>Order Id</span>
+                                <span>Customer Name</span>
+                                <span>Crate Amount</span>
+                                <span>Amount (₦)</span>
+                                <span>Payment Method</span>
+                                <span>Time</span>
+                            </div>
+                            <div class="itb">
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Bills restuarant</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Gudu</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">POS</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Chidi</span>
+                                    <span>4</span>
+                                    <span>40020</span>
+                                    <span><span class="payment-method">Cash</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Blake</span>
+                                    <span>2302</span>
+                                    <span>4128920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Bills restuarant</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Gudu</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">POS</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Chidi</span>
+                                    <span>4</span>
+                                    <span>40020</span>
+                                    <span><span class="payment-method">Cash</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Blake</span>
+                                    <span>2302</span>
+                                    <span>4128920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Bills restuarant</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Gudu</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">POS</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Chidi</span>
+                                    <span>4</span>
+                                    <span>40020</span>
+                                    <span><span class="payment-method">Cash</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Blake</span>
+                                    <span>2302</span>
+                                    <span>4128920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Bills restuarant</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Gudu</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">POS</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Chidi</span>
+                                    <span>4</span>
+                                    <span>40020</span>
+                                    <span><span class="payment-method">Cash</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Blake</span>
+                                    <span>2302</span>
+                                    <span>4128920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Bills restuarant</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                    <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Gudu</span>
+                                    <span>232</span>
+                                    <span>4028920</span>
+                                    <span><span class="payment-method">POS</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Chidi</span>
+                                    <span>4</span>
+                                    <span>40020</span>
+                                    <span><span class="payment-method">Cash</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                                <div class="tl">
+                                <span>ORD-LWD8K7J-F8A2N</span>
+                                    <span>Blake</span>
+                                    <span>2302</span>
+                                    <span>4128920</span>
+                                    <span><span class="payment-method">Transfer</span></span>
+                                    <span>08:41:05</span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>  
+                    </div>
+
+                </section>
+                </div>
+
+            <!-- Price -->
             <div class="price-content content-container" id="price-content" style="display: none;"><h2>Price</h2></div>
+            <!-- Inventory -->
             <div class="inventory-content content-container" id="inventory-content" style="display: none;"><h2>Inventory</h2></div>
+            <!-- Purchase -->
             <div class="purchase-orders-content content-container" id="purchase-orders-content" style="display: none;"><h2>Purchase Orders</h2></div>
+            <!-- Finances -->
             <div class="finance-content content-container" id="finance-content" style="display: none;"> <h2>Finance</h2></div>
+            <!-- Manage Account -->
             <div class="manage-account-content content-container" id="manage-account-content" style="display: none;">
                 <section>
                     <h2>Manage Account</h2>

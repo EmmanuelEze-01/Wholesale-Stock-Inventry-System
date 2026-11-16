@@ -156,6 +156,27 @@ function UsernamendRole() {
 }
 
 UsernamendRole();
+
+function generateReceipt() {
+  const receiptCnt = document.getElementById("overlay")
+  receiptCnt.style.display = "flex"
+  receiptCnt.style.top = 0
+}
+
+function closeGeneratedReceipt(){
+  const receiptCnt = document.getElementById("overlay")
+  receiptCnt.style.top = "-100%"
+  setTimeout(() => {
+    receiptCnt.style.display = "none"
+  }, 1000);
+}
+
+  // FOR NOW I'VE ADDED TWO FUNCTIONS generateReceipt() AND closeGeneratedReceipt() THE GENERATE RECIPTS FOR NOW JUST POPS UP THE RECEIPT CONTAINER, WHILE THE CLOSE REMVES IT, TMRW I'LL ADD OBJECTS THAT'LL MAKE IT THAT WHICH EVER LIST ON THE ORDERS LIST I CLICK ON, THE RECEPT GENERATED WILL MATCH THE INFO ON THE LIST OUTSIDE, I'VE DONE RESEARCH AND I'LL USE AN OBEJCT, THEN LATER, WHEN I CONNECT IT TO MY BACKEND JUST LIKE THE CHARTS DAATM, I'LL STRUCTURE THE DATA IN THE BACKENED SO IT'LL MATCH IT EXCATLY. I'M USING THE LINK: https://www.google.com/search?q=I+have+an+object%2C+with+multiple+name+and+email%2C+and+I+want+it+ot+be+in+each+list+in+html&sca_esv=9e40641db8ba5a4c&sxsrf=AKL5yDiup8QUYGbdmd3C_D3DKlzr-G7LDg%3A1794865431416&ei=F3n7aqX1GMmbhbIPhO7voAk&biw=1280&bih=585&uact=5&oq=I+have+an+object%2C+with+multiple+name+and+email%2C+and+I+want+it+ot+be+in+each+list+in+html&gs_lp=Egxnd3Mtd2l6LXNlcnAiWEkgaGF2ZSBhbiBvYmplY3QsIHdpdGggbXVsdGlwbGUgbmFtZSBhbmQgZW1haWwsIGFuZCBJIHdhbnQgaXQgb3QgYmUgaW4gZWFjaCBsaXN0IGluIGh0bWxIvosCUPkFWLOHAnAEeACQAQCYAagCoAHWJqoBBDItMjC4AQPIAQD4AQGYAgagAsEEwgIHECMYsAMYJ8ICBBAhGAqYAwCIBgGQBgGSBwU0LjAuMqAHn0KyBwMyLTK4B6wEwgcFMC41LjHIBw-ACAE&sclient=gws-wiz-serp&mstk=AUtExfBIQIog6djC7Kr2CNl1Wcz9I_W3OO_yfvOP18I4--UkfvTgRph7na9UrUkH7uenGqbVPUfzd__grwwrCWdZl7CKWlt1Q2zVc4J559LcknfDplF4GTELOVpYmrbpKWVxvO6AwJvHeLzsYUWYoYJ8ncDlxdJL8WOrm2zDhuzfepBFjJgk3LWHU-tdBWQu4bSVMeHX5MHKO148YlhvepUk9Om6z-h9OM0JfrqUFt2s_h2WjJWqxFn4Iypa7-upPWQiNvfbUg1QLRUXmN74c-ZnvNlO_8ryQrJb2NjURtXp0IBulkI6JA&csuir=1&udm=50&aioh=3&mtid=R3n7auquHueshbIPxavEaQ#aof=1           
+  //  AS A GUIDE. SEE U TMRW 
+
+
+
+
 // =======
 // this javascript file contains the code for the navbar hover effect 
 // ans also the date time code on the dashboard. 
